@@ -21,7 +21,7 @@ const BookTutor = () => {
     setError("");
     try {
         const token = localStorage.getItem("token");
-      await axios.post("http://localhost:3000/api/booking/create", {
+      await axios.post("https://tuition-media-production.up.railway.app/api/booking/create", {
         tutor_id: id,
         student_id: user.id,
         date,

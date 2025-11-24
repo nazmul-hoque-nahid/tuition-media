@@ -15,7 +15,7 @@ const role = location.state?.role || 'tutor';
     setMessage('');
     setError('');
     try {
-      const res = await axios.post(`http://localhost:3000/api/${role}/forgot-password`, { email });
+      const res = await axios.post(`https://tuition-media-production.up.railway.app/api/${role}/forgot-password`, { email });
       setMessage(res.data.message || 'Check your email for reset link.');
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong.');

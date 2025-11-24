@@ -19,7 +19,7 @@ const TutorHub = () => {
 
     const fetchTutors = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/tutor/getAllTutors')
+        const response = await fetch('https://tuition-media-production.up.railway.app/api/tutor/getAllTutors')
         if (!response.ok) throw new Error('Failed to fetch tutors')
         const data = await response.json()
         setTutors(data)
@@ -56,7 +56,7 @@ const TutorHub = () => {
         params.studentLng = user.longitude
       }
 
-      const res = await axios.get('http://localhost:3000/api/tutor/search', { params })
+      const res = await axios.get('https://tuition-media-production.up.railway.app/api/tutor/search', { params })
       setTutors(res.data)
     } catch (err) {
       setError('Failed to search tutors')

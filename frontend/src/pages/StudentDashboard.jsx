@@ -13,7 +13,7 @@ const StudentDashboard = () => {
   // Fetch applications for student's posts
   const fetchApplications = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/application/student", {
+      const res = await axios.get("https://tuition-media-production.up.railway.app/api/application/student", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setApplications(res.data);
@@ -26,7 +26,7 @@ const StudentDashboard = () => {
   // Fetch bookings
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/booking/student", {
+      const res = await axios.get("https://tuition-media-production.up.railway.app/api/booking/student", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(res.data);
@@ -40,7 +40,7 @@ const StudentDashboard = () => {
   const handleUpdateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/application/update-status/${id}`,
+        `https://tuition-media-production.up.railway.app/api/application/update-status/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

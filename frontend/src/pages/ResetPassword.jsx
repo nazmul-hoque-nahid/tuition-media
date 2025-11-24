@@ -27,7 +27,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/tutor/reset-password', {
+      const res = await axios.post('https://tuition-media-production.up.railway.app/api/tutor/reset-password', {
         token,
         password
       });

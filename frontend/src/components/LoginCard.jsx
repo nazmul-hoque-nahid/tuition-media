@@ -16,7 +16,7 @@ const LoginCard = () => {
     e.preventDefault()
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/${role}/login`,
+        `https://tuition-media-production.up.railway.app/api/${role}/login`,
         { email, password },
         { withCredentials: true }
       )

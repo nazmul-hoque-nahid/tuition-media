@@ -30,8 +30,8 @@ const RegisterCard = () => {
     try {
       const res = await axios.post(
         role === 'tutor'
-          ? 'http://localhost:3000/api/tutor/register'
-          : 'http://localhost:3000/api/student/register',
+          ? 'https://tuition-media-production.up.railway.app/api/tutor/register'
+          : 'https://tuition-media-production.up.railway.app/api/student/register',
         { fullName, phone, email, password },
         { withCredentials: true }
       )

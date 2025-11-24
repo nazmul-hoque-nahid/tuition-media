@@ -66,7 +66,7 @@ const handleSubjectChange = (sub) => {
       }
 
      await axios.post(
-  'http://localhost:3000/api/post/create',
+  'https://tuition-media-production.up.railway.app/api/post/create',
   { ...post, student_id: user.id, subjects: selectedSubjects },
   { headers: { Authorization: `Bearer ${token}` } }
 );

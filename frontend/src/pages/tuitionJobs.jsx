@@ -36,7 +36,7 @@ const TuitionJobs = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get('http://localhost:3000/api/post', {
+      const res = await axios.get('https://tuition-media-production.up.railway.app/api/post', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -61,7 +61,7 @@ const TuitionJobs = () => {
         if (filters[key]) params[key] = filters[key];
       });
 
-      const res = await axios.get('http://localhost:3000/api/post/search', {
+      const res = await axios.get('https://tuition-media-production.up.railway.app/api/post/search', {
         params,
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,

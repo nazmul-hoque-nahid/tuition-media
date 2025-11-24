@@ -20,8 +20,8 @@ const Settings = () => {
     try {
       await axios.put(
         user.role === 'Tutor'
-          ? 'http://localhost:3000/api/tutor/changePassword'
-          : 'http://localhost:3000/api/student/changePassword',
+          ? 'https://tuition-media-production.up.railway.app/api/tutor/changePassword'
+          : 'https://tuition-media-production.up.railway.app/api/student/changePassword',
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
@@ -55,8 +55,8 @@ const Settings = () => {
       try {
         await axios.put(
           user.role === "Tutor"
-            ? "http://localhost:3000/api/tutor/updateLocation"
-            : "http://localhost:3000/api/student/updateLocation",
+            ? "https://tuition-media-production.up.railway.app/api/tutor/updateLocation"
+            : "https://tuition-media-production.up.railway.app/api/student/updateLocation",
           { latitude, longitude },
           {
             headers: {
@@ -85,8 +85,8 @@ const Settings = () => {
     try {
       await axios.delete(
         user.role === 'Tutor'
-          ? `http://localhost:3000/api/tutor/delete/${user.id}`
-          : `http://localhost:3000/api/student/delete/${user.id}`,
+          ? `https://tuition-media-production.up.railway.app/api/tutor/delete/${user.id}`
+          : `https://tuition-media-production.up.railway.app/api/student/delete/${user.id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
       localStorage.removeItem('token');

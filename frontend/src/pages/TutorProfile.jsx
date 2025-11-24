@@ -36,7 +36,7 @@ const TutorProfile = () => {
     const fetchTutor = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/tutor/public/${id}`
+          `https://tuition-media-production.up.railway.app/api/tutor/public/${id}`
         );
 
         setTutor(res.data);

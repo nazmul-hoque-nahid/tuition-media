@@ -25,7 +25,7 @@ const OTPVerify = () => {
     setLoading(true)
     try {
         
-      const res = await axios.post(`http://localhost:3000/api/${role}/verify-otp`, { userId, otp,role })
+      const res = await axios.post(`https://tuition-media-production.up.railway.app/api/${role}/verify-otp`, { userId, otp,role })
 
       setSuccess("OTP Verified!")
        navigate("/login")

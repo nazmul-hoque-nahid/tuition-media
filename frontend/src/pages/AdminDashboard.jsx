@@ -19,11 +19,11 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       const [rStats, rStudents, rTutors, rPosts, rApps] = await Promise.all([
-        axios.get("http://localhost:3000/api/admin/stats", { headers }),
-        axios.get("http://localhost:3000/api/admin/students", { headers }),
-        axios.get("http://localhost:3000/api/admin/tutors", { headers }),
-        axios.get("http://localhost:3000/api/admin/posts", { headers }),
-        axios.get("http://localhost:3000/api/admin/applications", { headers }),
+        axios.get("https://tuition-media-production.up.railway.app/api/admin/stats", { headers }),
+        axios.get("https://tuition-media-production.up.railway.app/api/admin/students", { headers }),
+        axios.get("https://tuition-media-production.up.railway.app/api/admin/tutors", { headers }),
+        axios.get("https://tuition-media-production.up.railway.app/api/admin/posts", { headers }),
+        axios.get("https://tuition-media-production.up.railway.app/api/admin/applications", { headers }),
       ]);
       setStats(rStats.data || {});
       setStudents(rStudents.data || []);
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
   const handleDelete = async (type, id) => {
     if (!window.confirm(`Delete this ${type}? This is permanent.`)) return;
     try {
-      await axios.delete(`http://localhost:3000/api/admin/delete/${type}/${id}`, { headers });
+      await axios.delete(`https://tuition-media-production.up.railway.app/api/admin/delete/${type}/${id}`, { headers });
       alert("Deleted");
       fetchAll();
     } catch (err) {

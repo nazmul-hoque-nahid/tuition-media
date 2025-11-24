@@ -14,7 +14,7 @@ const TutorDashboard = () => {
   const fetchApplications = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/application/tutor",
+        "https://tuition-media-production.up.railway.app/api/application/tutor",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setApplications(res.data);
@@ -27,7 +27,7 @@ const TutorDashboard = () => {
   // Fetch bookings
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/booking/tutor", {
+      const res = await axios.get("https://tuition-media-production.up.railway.app/api/booking/tutor", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBookings(res.data);

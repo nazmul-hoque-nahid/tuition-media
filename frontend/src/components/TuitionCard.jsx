@@ -37,7 +37,7 @@ const TuitionCard = ({ job }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:3000/api/application/apply",
+        "https://tuition-media-production.up.railway.app/api/application/apply",
         { post_id },
         { headers: { Authorization: `Bearer ${token}` } }
       );

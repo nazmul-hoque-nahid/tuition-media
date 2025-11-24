@@ -28,8 +28,8 @@ const UserProfile = () => {
       try {
         const url =
           user.role === "Tutor"
-            ? `http://localhost:3000/api/tutor/${user.id}`
-            : `http://localhost:3000/api/student/${user.id}`;
+            ? `https://tuition-media-production.up.railway.app/api/tutor/${user.id}`
+            : `https://tuition-media-production.up.railway.app/api/student/${user.id}`;
 
         const res = await axios.get(url, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -118,8 +118,8 @@ const UserProfile = () => {
 
       const url =
         user.role === "Tutor"
-          ? "http://localhost:3000/api/tutor/updateTutor"
-          : "http://localhost:3000/api/student/updateStudent";
+          ? "https://tuition-media-production.up.railway.app/api/tutor/updateTutor"
+          : "https://tuition-media-production.up.railway.app/api/student/updateStudent";
 
       const res = await axios.put(url, formData, {
         headers: {
