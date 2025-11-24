@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 
 const RegisterCard = () => {
   const [role, setRole] = useState('tutor')
@@ -156,8 +156,8 @@ const RegisterCard = () => {
         </button>
 
         <div className="flex justify-between items-center mt-3 text-sm text-gray-500">
-          <a href="/login" className="text-amber-600 hover:underline">Already have an account?</a>
-          <a href="/forgot-password" className="text-amber-600 hover:underline">Reset Password</a>
+          <Link to="/login" className="text-amber-600 hover:underline">Already have an account?</Link>
+          <Link to="/forgot-password" className="text-amber-600 hover:underline">Reset Password</Link>
         </div>
       </form>
     </motion.div>

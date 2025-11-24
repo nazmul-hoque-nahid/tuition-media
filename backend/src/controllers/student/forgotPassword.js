@@ -21,7 +21,7 @@ export const forgotPassword = async (req, res) => {
     );
 
     // IMPORTANT — USE FRONTEND URL (5173)
-    const resetLink = `http://localhost:5173/reset-password?token=${token}`;
+    const resetLink = `https://tuition-media-one.vercel.app/reset-password?token=${token}`;
 
     await sendResetEmail(email, resetLink);
 
