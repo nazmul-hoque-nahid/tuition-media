@@ -65,5 +65,5 @@ npm run dev
 - GitHub: [nazmul-hoque-nahid](https://github.com/nazmul-hoque-nahid)  
 - Email: nazmulhoque.swe@gmail.com 
 ## Shorifuzzaman Shuvo
-- GitHub:[]()
+- GitHub:[Shorifuzzaman-Git](https://github.com/Shorifuzzaman-Git)
 - Email:shorifuzzaman1009@gmail.com
