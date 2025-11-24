@@ -1,28 +1,61 @@
-import {db} from '../config/db.js';
+import { db } from "../config/db.js";
 
+// Create booking
 export const createBooking = async (req, res) => {
   const { tutor_id, date, time, message } = req.body;
-  const student_id = req.user.id; // get from token
+  const student_id = req.user.id;
 
-  if (!tutor_id || !date || !time) {
+  if (!tutor_id || !date || !time)
     return res.status(400).json({ message: "Tutor, date, and time are required" });
-  }
 
   try {
     const [result] = await db.execute(
       "INSERT INTO bookings (tutor_id, student_id, date, time, message) VALUES (?, ?, ?, ?, ?)",
       [tutor_id, student_id, date, time, message]
     );
-
-    // Use result.insertId for AUTO_INCREMENT ID
-    res.status(201).json({ message: "Booking created", bookingId: result.id });
+    res.status(201).json({ message: "Booking created", bookingId: result.insertId });
   } catch (err) {
-    console.error("SQL Error:", err); // log full error for debugging
+    console.error(err);
     res.status(500).json({ message: "Failed to create booking", error: err.message });
   }
 };
 
+// Get bookings by tutor
+export const getBookingsByTutor = async (req, res) => {
+  const tutorId = req.user.id;
+  try {
+    const [rows] = await db.execute(
+      `SELECT b.*, s.name AS student_name, s.gender AS student_gender, s.city AS student_city, s.email AS student_email, s.phone AS student_phone
+       FROM bookings b
+       JOIN student s ON b.student_id = s.id
+       WHERE b.tutor_id = ?
+       ORDER BY b.date DESC, b.time DESC`,
+      [tutorId]
+    );
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch bookings' });
+  }
+};
 
+// Update booking status (accept/reject)
+export const updateBookingStatus = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body; // "accepted" or "rejected"
+
+  if (!["accepted", "rejected"].includes(status)) {
+    return res.status(400).json({ message: "Invalid status" });
+  }
+
+  try {
+    await db.execute("UPDATE bookings SET status=? WHERE id=?", [status, id]);
+    res.json({ message: `Booking ${status}` });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to update booking' });
+  }
+};
+
+// Get bookings by student
 export const getBookingsByStudent = async (req, res) => {
   const studentId = req.user.id;
   try {
@@ -33,43 +66,8 @@ export const getBookingsByStudent = async (req, res) => {
        WHERE b.student_id = ?`,
       [studentId]
     );
-
     res.json(rows);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch bookings' });
   }
 };
-
-
-
-
-export const getBookingsByTutor = async (req, res) => {
-  const tutorId = req.user.id;
-  try {
-    const [rows] = await db.execute(
-      `SELECT b.*, s.name AS student_name,s.gender AS student_gender,s.city AS student_city, s.email AS student_email, s.phone AS student_phone
-       FROM bookings b
-       JOIN student s ON b.student_id = s.id
-       WHERE b.tutor_id = ?
-       order by b.date desc, b.time desc
-       `,
-      [tutorId]
-    );
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to fetch bookings' });
-  }
-};
-
-
-export const updateBookingStatus = async (req, res) => {
-    const { id } = req.params;
-    const { status } = req.body; // accepted or rejected
-
-    try {
-        await db.execute('UPDATE bookings SET status = ? WHERE id = ?', [status, id]);
-        res.json({ message: 'Booking status updated' });
-    } catch (err) {
-        res.status(500).json({ message: 'Failed to update booking' });
-    }
-}

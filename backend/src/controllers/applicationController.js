@@ -50,7 +50,6 @@ export const getTutorApplications = async (req, res) => {
   }
 };
 
-
 // Student dashboard: get applications for their posts
 export const getStudentApplications = async (req, res) => {
   const student_id = req.user.id;

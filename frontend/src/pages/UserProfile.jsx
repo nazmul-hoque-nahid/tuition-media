@@ -20,7 +20,7 @@ const UserProfile = () => {
 
   const navigate = useNavigate();
 
-  // Fetch profile
+  // Load profile on mount
   useEffect(() => {
     const fetchProfile = async () => {
       if (!user) return;
@@ -36,9 +36,7 @@ const UserProfile = () => {
         });
 
         const data = res.data;
-  
 
-        // Ensure all fields exist
         setProfile({
           id: data.id || "",
           name: data.name || "",
@@ -49,7 +47,7 @@ const UserProfile = () => {
           institute: data.institute || "",
           yearsOfExperience: data.yearsOfExperience || "",
           bio: data.bio || "",
-          photo: data.profile_pic_url || Default,
+          photo: (data.profile_pic_url || Default).replace(/^http:/, "https:"),
         });
 
         setSelectedClasses(data.classes || []);
@@ -75,7 +73,7 @@ const UserProfile = () => {
   if (loading || !profile)
     return <p className="text-center mt-24 text-white">Loading...</p>;
 
-  // Input change handler
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({ ...prev, [name]: value }));
@@ -97,6 +95,7 @@ const UserProfile = () => {
     );
   };
 
+  // Update profile
   const handleUpdate = async () => {
     setUpdating(true);
     try {
@@ -132,7 +131,7 @@ const UserProfile = () => {
         ...profile,
         ...res.data,
         gender: res.data.gender || profile.gender,
-        photo: res.data.profile_pic_url || profile.photo,
+        photo: (res.data.profile_pic_url || profile.photo).replace(/^http:/, "https:"),
       };
       setProfile(updatedProfile);
 
@@ -140,10 +139,11 @@ const UserProfile = () => {
         ...user,
         ...res.data,
         gender: res.data.gender || user.gender,
-        photo: res.data.profile_pic_url || user.photo,
+        photo: (res.data.profile_pic_url || user.photo).replace(/^http:/, "https:"),
       };
+
       setUser(updatedUser);
-      //localStorage.setItem("user", JSON.stringify(updatedUser));
+      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Store updated user in localStorage
 
       alert("Profile updated successfully!");
       setEditMode(false);
@@ -250,7 +250,6 @@ const UserProfile = () => {
         {/* Tutor fields */}
         {user.role === "Tutor" && (
           <>
-            {/* Institute */}
             <div className="flex flex-col">
               <label className="text-amber-800 font-semibold mb-1">Institute</label>
               {!editMode ? (
@@ -272,7 +271,6 @@ const UserProfile = () => {
               )}
             </div>
 
-            {/* Experience */}
             <div className="flex flex-col">
               <label className="text-amber-800 font-semibold mb-1">Years of Experience</label>
               {!editMode ? (
@@ -288,7 +286,6 @@ const UserProfile = () => {
               )}
             </div>
 
-            {/* Bio */}
             <div className="flex flex-col w-full">
               <label className="text-amber-800 font-semibold mb-1">Bio</label>
               {!editMode ? (
@@ -304,7 +301,6 @@ const UserProfile = () => {
               )}
             </div>
 
-            {/* Classes */}
             <div className="flex flex-col w-full">
               <label className="text-amber-800 font-semibold mb-1">Classes you teach</label>
               {!editMode ? (
@@ -327,7 +323,6 @@ const UserProfile = () => {
               )}
             </div>
 
-            {/* Subjects */}
             <div className="flex flex-col w-full">
               <label className="text-amber-800 font-semibold mb-1">Subjects you teach</label>
               {!editMode ? (
