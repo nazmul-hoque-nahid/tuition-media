@@ -21,7 +21,7 @@ import StudentDashboard from "./pages/StudentDashboard.jsx";
 import TutorDashboard from "./pages/TutorDashboard.jsx";
 import AdminLogin from "./pages/Admin.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
-import ScrollToTop from '.pages/ScrollToTop';
+import ScrollToTop from './pages/ScrollToTop.jsx';
 const App = () => {
    const location = useLocation();
    //const hideNavbar = location.pathname === '/profile' || location.pathname === '/settings';

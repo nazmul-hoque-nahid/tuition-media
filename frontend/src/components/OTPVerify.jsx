@@ -38,7 +38,7 @@ const OTPVerify = () => {
 
   return (
     <div className="max-w-md mx-auto mt-16 p-6 bg-white shadow-lg rounded-lg">
-        <p className="text-2xl  mb-4 text-center">Please check your email for the OTP</p>
+        <p className="text-2xl  mb-4 text-center">Please check your Mail box and Spam  for the OTP</p>
       <h2 className="text-2xl font-bold mb-4 text-center">Enter 6-digit OTP</h2>
       {error && <p className="text-red-500 text-sm">{error}</p>}
       {success && <p className="text-green-500 text-sm">{success}</p>}
