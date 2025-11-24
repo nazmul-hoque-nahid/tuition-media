@@ -1,0 +1,233 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      
+      .float { animation: float 3s ease-in-out infinite; }
+      .bounce { animation: bounce 2s ease-in-out infinite; }
+      .spin { animation: spin 8s linear infinite; }
+      .pulse { animation: pulse 2s ease-in-out infinite; }
+      .shake { animation: shake 1s ease-in-out infinite; }
+      .slide-up { animation: slideUp 0.6s ease-out forwards; }
+    </style>
+    
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9D5A4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F4B896;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="teacherShirtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="studentShirtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F43F5E;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background decorative elements -->
+  <circle cx="150" cy="100" r="80" fill="#E0E7FF" opacity="0.3" class="float" />
+  <circle cx="850" cy="600" r="100" fill="#F0FDFA" opacity="0.3" class="float" style="animation-delay: 1s;" />
+  
+  <!-- Floating sparkles -->
+  <g class="pulse" style="animation-delay: 0s;">
+    <circle cx="700" cy="150" r="4" fill="#FBBF24" />
+    <circle cx="680" cy="140" r="2.5" fill="#FCD34D" />
+    <circle cx="720" cy="140" r="2.5" fill="#FCD34D" />
+  </g>
+  
+  <g class="pulse" style="animation-delay: 0.5s;">
+    <circle cx="250" cy="500" r="4" fill="#A78BFA" />
+    <circle cx="230" cy="490" r="2.5" fill="#C4B5FD" />
+    <circle cx="270" cy="490" r="2.5" fill="#C4B5FD" />
+  </g>
+  
+  <!-- TEACHER CHARACTER (Left) -->
+  <g class="slide-up" style="animation-delay: 0.1s;">
+    <!-- Teacher shadow -->
+    <ellipse cx="320" cy="620" rx="80" ry="20" fill="#000" opacity="0.1" />
+    
+    <!-- Teacher legs -->
+    <rect x="290" y="480" width="25" height="140" rx="12" fill="#2C3E50" />
+    <rect x="345" y="480" width="25" height="140" rx="12" fill="#34495E" />
+    
+    <!-- Teacher shoes -->
+    <ellipse cx="302" cy="625" rx="20" ry="15" fill="#1A1A1A" />
+    <ellipse cx="357" cy="625" rx="20" ry="15" fill="#1A1A1A" />
+    
+    <!-- Teacher body -->
+    <rect x="280" y="340" width="110" height="150" rx="15" fill="url(#teacherShirtGradient)" filter="url(#shadow)" />
+    
+    <!-- Teacher left arm -->
+    <g class="bounce" style="transform-origin: 295px 360px; animation-delay: 0.2s;">
+      <rect x="240" y="355" width="60" height="30" rx="15" fill="url(#skinGradient)" transform="rotate(-35 270 370)" />
+      <!-- Teacher hand -->
+      <circle cx="220" cy="340" r="18" fill="url(#skinGradient)" />
+    </g>
+    
+    <!-- Teacher right arm (holding pointer) -->
+    <g class="shake" style="transform-origin: 375px 360px;">
+      <rect x="375" y="355" width="65" height="30" rx="15" fill="url(#skinGradient)" transform="rotate(40 407 370)" />
+      <!-- Teacher hand -->
+      <circle cx="420" cy="340" r="18" fill="url(#skinGradient)" />
+      <!-- Pointer stick -->
+      <line x1="435" y1="325" x2="550" y2="250" stroke="#D4AF37" stroke-width="4" stroke-linecap="round" />
+    </g>
+    
+    <!-- Teacher neck -->
+    <rect x="305" y="315" width="50" height="25" fill="url(#skinGradient)" />
+    
+    <!-- Teacher head -->
+    <circle cx="330" cy="280" r="40" fill="url(#skinGradient)" filter="url(#shadow)" />
+    
+    <!-- Teacher hair -->
+    <path d="M 290 270 Q 290 235 330 235 Q 370 235 370 270" fill="#3D2817" />
+    <circle cx="310" cy="245" r="8" fill="#3D2817" />
+    <circle cx="350" cy="245" r="8" fill="#3D2817" />
+    
+    <!-- Teacher eyes -->
+    <circle cx="315" cy="270" r="5" fill="#1A1A1A" />
+    <circle cx="345" cy="270" r="5" fill="#1A1A1A" />
+    <circle cx="317" cy="268" r="2" fill="#fff" />
+    <circle cx="347" cy="268" r="2" fill="#fff" />
+    
+    <!-- Teacher smile -->
+    <path d="M 320 295 Q 330 305 340 295" stroke="#8B4513" stroke-width="2" fill="none" stroke-linecap="round" />
+    
+    <!-- Teacher nose -->
+    <line x1="330" y1="280" x2="330" y2="295" stroke="#D4A574" stroke-width="1.5" />
+  </g>
+  
+  <!-- STUDENT CHARACTER (Right) -->
+  <g class="slide-up" style="animation-delay: 0.3s;">
+    <!-- Student shadow -->
+    <ellipse cx="720" cy="620" rx="75" ry="20" fill="#000" opacity="0.1" />
+    
+    <!-- Student legs -->
+    <rect x="690" y="500" width="22" height="120" rx="11" fill="#1F2937" />
+    <rect x="743" y="500" width="22" height="120" rx="11" fill="#111827" />
+    
+    <!-- Student shoes -->
+    <ellipse cx="701" cy="625" rx="18" ry="14" fill="#000" />
+    <ellipse cx="754" cy="625" rx="18" ry="14" fill="#000" />
+    
+    <!-- Student body -->
+    <rect x="680" y="360" width="100" height="145" rx="12" fill="url(#studentShirtGradient)" filter="url(#shadow)" />
+    
+    <!-- Student left arm -->
+    <g class="bounce" style="transform-origin: 690px 375px; animation-delay: 0.4s;">
+      <rect x="640" y="370" width="55" height="28" rx="14" fill="url(#skinGradient)" transform="rotate(-40 667 384)" />
+      <circle cx="625" cy="360" r="16" fill="url(#skinGradient)" />
+    </g>
+    
+    <!-- Student right arm -->
+    <g class="bounce" style="transform-origin: 770px 375px; animation-delay: 0.6s;">
+      <rect x="775" y="370" width="55" height="28" rx="14" fill="url(#skinGradient)" transform="rotate(35 802 384)" />
+      <circle cx="825" cy="360" r="16" fill="url(#skinGradient)" />
+    </g>
+    
+    <!-- Student neck -->
+    <rect x="705" y="330" width="45" height="30" fill="url(#skinGradient)" />
+    
+    <!-- Student head -->
+    <circle cx="730" cy="295" r="38" fill="url(#skinGradient)" filter="url(#shadow)" />
+    
+    <!-- Student hair -->
+    <path d="M 692 285 Q 692 255 730 255 Q 768 255 768 285" fill="#1A1A1A" />
+    <circle cx="710" cy="260" r="7" fill="#1A1A1A" />
+    <circle cx="750" cy="260" r="7" fill="#1A1A1A" />
+    
+    <!-- Student eyes -->
+    <circle cx="715" cy="290" r="5" fill="#1A1A1A" />
+    <circle cx="745" cy="290" r="5" fill="#1A1A1A" />
+    <circle cx="717" cy="288" r="2" fill="#fff" />
+    <circle cx="747" cy="288" r="2" fill="#fff" />
+    
+    <!-- Student smile (happy) -->
+    <path d="M 720 310 Q 730 318 740 310" stroke="#8B4513" stroke-width="2" fill="none" stroke-linecap="round" />
+    
+    <!-- Student nose -->
+    <line x1="730" y1="295" x2="730" y2="308" stroke="#D4A574" stroke-width="1.5" />
+  </g>
+  
+  <!-- BOOK (Between teacher and student) -->
+  <g class="float" style="animation-delay: 0.5s;">
+    <!-- Book shadow -->
+    <ellipse cx="500" cy="445" rx="65" ry="15" fill="#000" opacity="0.1" />
+    
+    <!-- Book back cover -->
+    <rect x="435" y="350" width="130" height="100" rx="8" fill="url(#bookGradient)" filter="url(#shadow)" />
+    
+    <!-- Book pages inner -->
+    <rect x="450" y="365" width="100" height="70" rx="4" fill="#f0fdf4" />
+    
+    <!-- Book spine -->
+    <line x1="500" y1="350" x2="500" y2="450" stroke="#047857" stroke-width="8" />
+    
+    <!-- Book lines (text simulation) -->
+    <line x1="460" y1="375" x2="540" y2="375" stroke="#10B981" stroke-width="2" opacity="0.6" />
+    <line x1="460" y1="385" x2="535" y2="385" stroke="#10B981" stroke-width="2" opacity="0.5" />
+    <line x1="460" y1="395" x2="530" y2="395" stroke="#10B981" stroke-width="2" opacity="0.5" />
+    <line x1="460" y1="405" x2="540" y2="405" stroke="#10B981" stroke-width="2" opacity="0.6" />
+    
+    <!-- Book bookmark -->
+    <rect x="545" y="340" width="8" height="120" rx="2" fill="#F59E0B" opacity="0.8" />
+  </g>
+  
+  <!-- Light bulb (idea icon) -->
+  <g class="pulse" style="animation-delay: 1s;">
+    <circle cx="550" cy="180" r="25" fill="#FBBF24" />
+    <rect x="540" y="205" width="20" height="5" rx="2" fill="#92400E" />
+    <line x1="540" y1="220" x2="560" y2="220" stroke="#92400E" stroke-width="2" stroke-linecap="round" />
+    <line x1="535" y1="215" x2="555" y2="215" stroke="#92400E" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+  </g>
+  
+  <!-- Connection line (from teacher pointer to student) -->
+  <line x1="550" y1="250" x2="620" y2="290" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5" opacity="0.4" class="pulse" />
+  
+  <!-- Decorative icons -->
+  <g class="bounce" style="animation-delay: 0.3s;">
+    <circle cx="850" cy="250" r="30" fill="#FEE2E2" />
+    <text x="850" y="265" font-size="35" text-anchor="middle" fill="#EF4444">🎓</text>
+  </g>
+  
+  <g class="bounce" style="animation-delay: 0.6s;">
+    <circle cx="150" cy="350" r="30" fill="#DBEAFE" />
+    <text x="150" y="365" font-size="35" text-anchor="middle" fill="#3B82F6">📚</text>
+  </g>
+</svg>
