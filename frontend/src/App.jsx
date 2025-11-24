@@ -21,13 +21,14 @@ import StudentDashboard from "./pages/StudentDashboard.jsx";
 import TutorDashboard from "./pages/TutorDashboard.jsx";
 import AdminLogin from "./pages/Admin.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
+import ScrollToTop from '.pages/ScrollToTop';
 const App = () => {
    const location = useLocation();
    //const hideNavbar = location.pathname === '/profile' || location.pathname === '/settings';
      const hideNavbar = ["/book-tutor","/my-bookings","/tutor-bookings","/profile","/settings"]
   return (
     <div>
-    
+    <ScrollToTop/>
       {!hideNavbar.includes(location.pathname) && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
