@@ -10,7 +10,8 @@ const app=express()
 app.use("/uploads", express.static("src/uploads"));
 app.use(express.json())
 const allowedOrigins = [
-  "http://localhost:5173", // local frontend
+  "http://localhost:5173",
+  "https://tuition-media-one.vercel.app" // local frontend
 ];
 
 app.use(cors({
