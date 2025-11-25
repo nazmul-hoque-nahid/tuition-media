@@ -125,7 +125,7 @@ const Navbar = () => {
       {/* Mobile panel */}
       <div className={`md:hidden bg-white border-t ${open ? 'block' : 'hidden'}`}>
         <div className="container mx-auto px-4 py-4">
-          {user && <p className="text-gray-700 mb-3 font-medium">Hi, {user.name}</p>}
+          {user && <p className="text-gray-700 mb-3 font-medium">{user.name}</p>}
 
           <ul className="flex flex-col gap-3">
             <li><NavLink to="/" className={navItem} onClick={() => setOpen(false)}>Home</NavLink></li>
