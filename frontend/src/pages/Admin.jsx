@@ -8,19 +8,35 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    try {
-      const res = await axios.post('https://tuition-media-one.vercel.app/api/admin/login', { email, password });
-      console.log(res.data.user);
-      localStorage.setItem('adminToken', res.data.token);
-      localStorage.setItem('adminInfo', JSON.stringify(res.data.user));
-      navigate('/admin/dashboard'); // redirect to dashboard
-    } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
+
+  try {
+    const res = await axios.post(
+      "https://tuition-media-production.up.railway.app/api/admin/login",
+      { email, password },
+      { 
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true
+      }
+    );
+
+    if (!res.data.token) {
+      throw new Error("No token returned by server");
     }
-  };
+
+    localStorage.setItem("adminToken", res.data.token);
+    localStorage.setItem("adminInfo", JSON.stringify(res.data.user));
+
+    navigate("/admin/dashboard");
+
+  } catch (err) {
+    console.log("Login Error:", err);
+    setError(err.response?.data?.message || "Login failed, try again.");
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
