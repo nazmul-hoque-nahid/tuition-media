@@ -12,8 +12,12 @@ export const sendOTPEmail = async (toEmail, otp) => {
       from: process.env.FROM_EMAIL,
       subject: "Your OTP Code",
       html: `
-        <p>Your OTP code is <b>${otp}</b>.</p>
-        <p>It expires in 10 minutes.</p>
+      <h1>Your OTP Code</h1>
+<p>Use this OTP to verify your account:</p>
+<div style="font-size:20px;font-weight:bold">${otp}</div>
+<p>This OTP expires in 10 minutes.</p>
+<p>If you did not request this, please ignore this email.</p>
+
       `,
     };
 

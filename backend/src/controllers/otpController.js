@@ -26,7 +26,7 @@ export const verifyOTP = async (req, res) => {
     const token = generateToken({...user[0],role:role})
    const r= role==="tutor"?"Tutor":"Student"
     // 5️⃣ Send token to frontend
-    res.json({ message: 'OTP verified successfully',token,user:{id:user[0].id,name:user[0].name,email:user[0].email,photo:user[0].profile_pic_url || null,role:r}} )
+    res.json({ message: 'OTP verified successfully please Login',token,user:{id:user[0].id,name:user[0].name,email:user[0].email,photo:user[0].profile_pic_url || null,role:r}} )
   } catch (err) {
     res.status(500).json({ message: 'Server error: ' + err.message })
   }
