@@ -12,7 +12,7 @@ const AdminLogin = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('tuition-media-production.up.railway.app/api/admin/login', { email, password });
+      const res = await axios.post('https://tuition-media-one.vercel.app/api/admin/login', { email, password });
       console.log(res.data.user);
       localStorage.setItem('adminToken', res.data.token);
       localStorage.setItem('adminInfo', JSON.stringify(res.data.user));
