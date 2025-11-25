@@ -51,7 +51,7 @@ const TutorDashboard = () => {
   if (error) return <p className="text-center mt-24 text-red-500">{error}</p>;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+    <div className="pt-20 pt-20 min-h-screen bg-gray-100 flex flex-col md:flex-row">
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-white shadow-md p-4 md:p-6 flex md:flex-col flex-row gap-3 md:gap-4 justify-around md:justify-start sticky top-0 z-10">
         <h2 className="text-lg md:text-xl font-bold hidden md:block">Dashboard</h2>
