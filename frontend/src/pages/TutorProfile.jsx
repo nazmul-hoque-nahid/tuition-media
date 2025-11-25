@@ -108,7 +108,7 @@ const TutorProfile = () => {
                 <span>🏫 {tutor.institute || "N/A"}</span>
 
                 {/* Distance only if student & distance calculated */}
-                {user?.role === "Student"  && (
+                {user?.role === "Student" && distance  && (
                   <span>🚗 {distance} km away</span>
                 )}
               </div>
